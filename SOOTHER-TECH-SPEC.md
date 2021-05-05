@@ -6,16 +6,16 @@ This document explains the initial plan for the implementation of SOOTHER.
 In April 2021, 13,000 whisper voice stems were recorded and cut at Superbudda in Torino, Italy. 
 
 The whispers were sourced from:
-- Ulysses by James Joyce (Molly Bloom's soliloquy)
-- Tender Buttons by Gertrude Stein
-- The Garden of Forking Paths by Jorge Luis Borges
-- Frankenstein by Mary Shelley
-- Cicada Games by Claire Tolan
--   Morris, William, et al. _Arts and Crafts Essays_. 1893.
--   Griffiths, Arthur. _The Chronicles of Newgate, Vol. 2_. 1884.
--   Roosevelt, Franklin D. _The Fireside Chats of Franklin Delano Roosevelt_. 1933-42.
--   Harland, Marion. _Marion Harland's Cookery for Beginners_. 1893.
--   Rolt-Wheeler, Francis. _The Science - History of the Universe, Vol. 5: Biology_. 1910.
+- Joyce, James, _Ulysses_ (Molly Bloom's soliloquy), 1922.
+- Stein, Gertrude, _Tender Buttons_, 1914. 
+- Borges, Jorge Luis, trans. Anthony Boucher, "The Garden of Forking Paths", 1941. 
+- Shelley, Mary, _Frankenstein_. 1823. 
+- Tolan, Claire, "CICADA GAMES". 2021.
+- Morris, William, et al. _Arts and Crafts Essays_. 1893.
+- Griffiths, Arthur. _The Chronicles of Newgate, Vol. 2_. 1884.
+- Roosevelt, Franklin D. _The Fireside Chats of Franklin Delano Roosevelt_. 1933-42.
+- Harland, Marion. _Marion Harland's Cookery for Beginners_. 1893.
+- Rolt-Wheeler, Francis. _The Science - History of the Universe, Vol. 5: Biology_. 1910.
 
 The first five texts were selected and cut into lines by Claire Tolan; the final five texts are used because of their inclusion in the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/), the most widely-used public domain speech dataset. Of the selected texts, all except _The Garden of Forking Paths_ and _Ulysses_ are in the worldwide public domain (_Ulysses_ is in the public domain only in Europe). The SOOTHER speech library will be open-sourced with the exception _Ulysses_ and _The Garden of Forking Paths_. 
 
