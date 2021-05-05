@@ -17,9 +17,11 @@ The whispers were sourced from:
 -   Harland, Marion. _Marion Harland's Cookery for Beginners_. 1893.
 -   Rolt-Wheeler, Francis. _The Science - History of the Universe, Vol. 5: Biology_. 1910.
 
-The stems were cut using a python script that identifies and cuts on silence. For quality control, the cut stems need to be reiewed against the source spreadsheet. This will be done in early May 2021 by a freelancer from Fiverr. 
+The first five texts were selected and cut into lines by Claire Tolan; the final five texts are used because of their inclusion in the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/), the most widely-used public domain speech dataset. Of the selected texts, all except _The Garden of Forking Paths_ and _Ulysses_ are in the worldwide public domain (_Ulysses_ is in the public domain only in Europe). The SOOTHER speech library will be open-sourced with the exception _Ulysses_ and _The Garden of Forking Paths_. 
 
-The whisper will be trained using the [Mycroft AI Taocotron implementation, mimic2](). Inference will also be made using mimic2 to provide the app with text-to-speech capacity. 
+The stems were cut using a python script that identifies and cuts on silence using the [pydub](https://github.com/jiaaro/pydub) library. For quality control, the cut stems need to be reiewed against the source spreadsheet. This will be done in early May 2021 by a freelancer from Fiverr. 
+
+The whisper will be trained using the [Mycroft AI Taocotron implementation, mimic2](https://github.com/MycroftAI/mimic2). Inference will also be made using mimic2 to provide the app with text-to-speech capacity. 
 
 ### APP ARCHITECTURE
 
