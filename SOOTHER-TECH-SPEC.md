@@ -152,5 +152,5 @@ The prototype app will also need to implement some type of user management, eith
 
 - Help Skill : How should this function? Should all of the specified functionality be included in the same skill, or broken apart into several different skills? 
 
-- MIMIC2 model vs MaryTTS: 
+- MIMIC2 vs MaryTTS: 
 	- I have planned to train SOOTHER using the [mimic2 training and inference algorithms](https://github.com/MycroftAI/mimic2) developed by Mycroft. However, offhand, it seems that mimic2 does not allow for concurrent requests to the SOOTHER model. Is there a workaround, or would a good queuing system be acceptable for a prototype? What are the pros of MaryTTS vs mimic2? Here is the [Macsen MaryTTS documentation](https://github.com/techiaith/docker-marytts) (in Welsch) and here is related [MaryTTS docker info](https://github.com/synesthesiam/docker-marytts).
