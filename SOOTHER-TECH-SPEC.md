@@ -6,13 +6,16 @@ This document explains the initial plan for the implementation of SOOTHER.
 In April 2021, 13,000 whisper voice stems were recorded and cut at Superbudda in Torino, Italy. 
 
 The whispers were sourced from:
-- The Chronicles of Newgate Prison, Volume II
-- *OTHER BOOKS FROM LJ SPEECH LIB*
 - Ulysses by James Joyce (Molly Bloom's soliloquy)
 - Tender Buttons by Gertrude Stein
 - The Garden of Forking Paths by Jorge Luis Borges
 - Frankenstein by Mary Shelley
 - Cicada Games by Claire Tolan
+-   Morris, William, et al. _Arts and Crafts Essays_. 1893.
+-   Griffiths, Arthur. _The Chronicles of Newgate, Vol. 2_. 1884.
+-   Roosevelt, Franklin D. _The Fireside Chats of Franklin Delano Roosevelt_. 1933-42.
+-   Harland, Marion. _Marion Harland's Cookery for Beginners_. 1893.
+-   Rolt-Wheeler, Francis. _The Science - History of the Universe, Vol. 5: Biology_. 1910.
 
 The stems were cut using a python script that identifies and cuts on silence. For quality control, the cut stems need to be reiewed against the source spreadsheet. This will be done in early May 2021 by a freelancer from Fiverr. 
 
