@@ -145,4 +145,7 @@ The prototype app will also need to implement some type of user management, eith
 - Google STT vs Mozilla DeepSpeech: 
 	- I have spec'd out the use of Mozilla DeepSpeech following the model of the Macsen app, but Mycroft defaults to Google STT, saying that [DeepSpeech isn't developed enough to provide a good user experience](https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/customizations/stt-engine#default-engine). Mycroft proxies the user requests through their servers in order to avoid sending identifying information to Google. I'm torn between these two methods -- do you have any opinions on the state of DeepSpeech and whether it is a viable STT engine? If I instead decide to use Google's service, then I will also proxy user traffic to preserve user privacy as much as possible. 
 
-- Help Skill : 
+- Help Skill : How should this function? Should all of the specified functionality be included in the same skill, or broken apart into several different skills? 
+
+- MIMIC2 model vs MaryTTS: 
+	- I have planned to train SOOTHER using the [mimic2 training and inference algorithms](https://github.com/MycroftAI/mimic2) developed by Mycroft. However, offhand, it seems that mimic2 does not allow for concurrent requests to the SOOTHER model. Is there a workaround, or would a good queuing system be acceptable for a prototype? What are the pros of MaryTTS vs mimic2? Here is the [Macsen MaryTTS documentation](https://github.com/techiaith/docker-marytts) (in Welsch) and here is related [MaryTTS docker info](https://github.com/synesthesiam/docker-marytts).
