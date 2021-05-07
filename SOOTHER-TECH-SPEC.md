@@ -1,4 +1,4 @@
-SOOTHER is an AI voice companion. It comprises a synthesized whisper voice trained on a speech library of ~13,000 whispered voical samples, a Flutter mobile app, and three APIS: a speech-to-text API, a "chatbot" API which parses the user's intent and directs it through SOOTHER's skills, and a text-to-speech API. 
+SOOTHER is an AI ASMR voice companion. It comprises a synthesized whisper voice trained on a speech library of ~13,000 whispered voical samples, a Flutter mobile app, and three APIS: a speech-to-text API, a "chatbot" API which parses the user's intent and directs it through SOOTHER's skills, and a text-to-speech API. 
 
 This document explains the initial plan for the implementation of SOOTHER.
 
