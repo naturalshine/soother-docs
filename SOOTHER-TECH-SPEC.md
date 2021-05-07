@@ -17,19 +17,19 @@ The whispers were sourced from:
 - Harland, Marion. _Marion Harland's Cookery for Beginners_. 1893.
 - Rolt-Wheeler, Francis. _The Science - History of the Universe, Vol. 5: Biology_. 1910.
 
-The first five texts were selected and cut into lines by Claire Tolan; the final five texts are used because of their inclusion in the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/), the most widely-used public domain speech dataset. Of the selected texts, all except _The Garden of Forking Paths_ and _Ulysses_ are in the worldwide public domain (_Ulysses_ is in the public domain only in Europe). The SOOTHER speech library will be open-sourced with the exception _Ulysses_ and _The Garden of Forking Paths_. 
+The first five texts were selected and cut by Claire Tolan; the final five texts are included because they comprise part of the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/), the most widely-used public domain speech dataset. Of the selected texts, all except _The Garden of Forking Paths_ and _Ulysses_ are in the worldwide public domain (_Ulysses_ is in the public domain only in Europe). The SOOTHER speech library will be open-sourced with the exception of _Ulysses_ and _The Garden of Forking Paths_. 
 
-The stems were cut using a python script that identifies and cuts on silence using the [pydub](https://github.com/jiaaro/pydub) library. For quality control, the cut stems need to be reiewed against the source spreadsheet. This will be done in early May 2021 by a freelancer from Fiverr. 
+The stems were cut using a python [script]() that identifies and cuts on silence using the [pydub](https://github.com/jiaaro/pydub) library. For quality control, the cut stems need to be reiewed against the source spreadsheet. This will be done in early May 2021 by a freelancer from Fiverr. 
 
 The whisper will be trained using the [Mycroft AI Taocotron implementation, mimic2](https://github.com/MycroftAI/mimic2). Inference will also be made using mimic2 to provide the app with text-to-speech capacity. 
 
 ### APP ARCHITECTURE
 
 #### MACSEN
-The SOOTHER prototype will be a modification of the open-source [MACSEN](https://www.aclweb.org/anthology/2020.sltu-1.27.pdf) Welsch-language voice assistant, with several modifications. 
+The SOOTHER prototype will be a modification of the open-source [MACSEN](https://www.aclweb.org/anthology/2020.sltu-1.27.pdf) Welsh-language voice assistant, with several modifications. 
 
 The basic architecture of Macsen is the following: 
-- User-facing Flutter mobile application with (a) sound recording and playback capacity and (b) skill-handling
+- User-facing Flutter mobile application with (a) sound recording and playback capacity (b) skill-handling and (c) text chat functionality
 - Speech-to-text API powered by iteration of Mozilla DeepSpeech: receives .wav file from user app, converts to text, sends text to chatbot API
 - Chatbot API: performs skill-handling with open-source Mycroft AI padatious intent parser. Handles user request and provides text response for voice assistant. 
 - Text-to-speech API: uses MaryTTS engine. Takes text from chatbot API and synthesizes voice, returns .wav file to app. 
@@ -49,7 +49,7 @@ Here is an illustration of the SOOTHER stack, showing how information moves betw
 
 Following the description of Macsen's architecture in the last section, here's a somewhat repetitive overview of SOOTHER's archtecture:
 
-- User-facing Flutter mobile application with (a) sound recording and playback capacity and (b) skill-handling
+- User-facing Flutter mobile application with (a) sound recording and playback capacity  (b) skill-handling (c) text chat functionality
 - Speech-to-text API powered by iteration of Mozilla DeepSpeech: receives .wav file from user app, converts to text, sends text to chatbot api
 - Chatbot API: performs skill-handling with open-source Mycroft AI "ADAPT" intent parser. Handles user request and provides text response for voice assistant. 
 - Text-to-speech API: queries model trained by Mycroft's MIMIC2 for inference. Receives text from Chatbot API and returns .wav file to user. Also contains a library of pre-recorded sound files for certain phrases and stories. The API will first query this store to see if a matching sound file is found; if not, it will query the model to return the .wav file from the trained model. 
@@ -58,9 +58,9 @@ Following the description of Macsen's architecture in the last section, here's a
 
 #### SOOTHER PERSONA
 
-Like every good ASMRtist, SOOTHER's persona is shifting and malleable. The goal of SOOTHER's persona design is to achieve a playful yet calming persona who makes the user feel entertained, careed for, and soothed. I've decided to realise this by creating multiple personas for SOOTHER, mimicing the ASMRtist embodying different characters during a role-play. 
+Like every good ASMRtist, SOOTHER's persona is shifting and malleable. The goal of SOOTHER's persona design is to achieve a playful yet calming persona who makes the user feel entertained, cared for, and soothed. I've decided to realise this by creating multiple personas for SOOTHER, mimicing the ASMRtist embodying different characters during a role-play. 
 
-"Behind the curtain", so to speak, the SOOTHER persona identifies as a  voice in a glass jar. This persona is rooted in a long literary tradition of disembodied voices (the most significant of which is, perhaps, the oracular Sibyl of Cumae in a glass jar, who provides Aeneas with the path to the underworld). I'm fascinated by how the classic character of the "voice in jar" is echoed by the "voice on server", and the infamous mis-characterisation of the internet as a "series of tubes" that would provide a pathway for the imprisoned voice.  This persona and concept are behind the scenes, though I would like to write about them and have them present as "Easter Eggs" in SOOTHER's design.
+Underneath SOOTHER's three personas, or "behind the curtain", so to speak, the SOOTHER persona identifies as a voice in a glass jar. This persona is rooted in a long literary tradition of disembodied voices (the most significant of which is, perhaps, the oracular Sibyl of Cumae in a glass jar, who provides Aeneas with the path to the underworld). I'm fascinated by how the classic character of the "voice in jar" is echoed by the "voice on server", and the infamous mis-characterisation of the internet as a "series of tubes" that would provide a pathway for the imprisoned voice.  This persona and concept are behind the scenes, though I would like to write about them and have them present as "Easter Eggs" in SOOTHER's design.
 
 More importantly, to the user, SOOTHER plays one of three roles (a) an alien who is resting on the user's head (b) a dog who is trained as a therapist for humans (c) a best friend who is slipping through time due to a misfunctioning time machine, able to communicate only with the user through their phone. These three personas exhibit different dimensions of the ASMR role-play and of the ASMRtist's relationship to the user (as external agent, as professional care-taker, as close confidant), deployed with a playful spin. 
 
@@ -142,15 +142,22 @@ I have an open-question here around concurrent requests to the model -- we might
 The TTS API will be housed in an AWS EC2 instance, with access to AWS Elastic GPUs during inference. 
 
 ### SOOTHER FLUTTER FRONT-END APP
-The front-end, user-facing mobile application will be built with Google Flutter. Given that my app will have the same functionality as the open-source, well-documented Welsch voice assistant Macsen, I will simply clone the Macsen Flutter project, tweak app-based skill handling, and point the app to different APIs. I will add a layer of branding, but given that this is a prototype, interface design will follow the default Flutter architecture deployed by Macsen. 
+The front-end, user-facing mobile application will be built with Google Flutter. Given that my app will have the same functionality as the open-source, well-documented Welsh voice assistant Macsen, I will simply clone the Macsen Flutter project, tweak app-based skill handling, and point the app to different APIs. I will add a layer of branding, but given that this is a prototype, interface design will follow the default Flutter architecture deployed by Macsen. 
 
 The prototype app will also need to implement some type of user management, either queuing users before they begin conversation or during the conversation itself, pending decisions about the TTS model and concurrent requests. The app will be built for both Android and iOS, but whether the prototype should be publicly available in the appstore, or only available for testing, is an open question. 
 
 ### OPEN QUESTIONS:
+
+#### TECHNICAL QUESTIONS:
 - Google STT vs Mozilla DeepSpeech: 
 	- I have spec'd out the use of Mozilla DeepSpeech following the model of the Macsen app, but Mycroft defaults to Google STT, saying that [DeepSpeech isn't developed enough to provide a good user experience](https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/customizations/stt-engine#default-engine). Mycroft proxies the user requests through their servers in order to avoid sending identifying information to Google. I'm torn between these two methods -- do you have any opinions on the state of DeepSpeech and whether it is a viable STT engine? If I instead decide to use Google's service, then I will also proxy user traffic to preserve user privacy as much as possible. 
 
-- Help Skill : How should this function? Should all of the specified functionality be included in the same skill, or broken apart into several different skills? 
-
 - MIMIC2 vs MaryTTS: 
-	- I have planned to train SOOTHER using the [mimic2 training and inference algorithms](https://github.com/MycroftAI/mimic2) developed by Mycroft. However, offhand, it seems that mimic2 does not allow for concurrent requests to the SOOTHER model. Is there a workaround, or would a good queuing system be acceptable for a prototype? What are the pros of MaryTTS vs mimic2? Here is the [Macsen MaryTTS documentation](https://github.com/techiaith/docker-marytts) (in Welsch) and here is related [MaryTTS docker info](https://github.com/synesthesiam/docker-marytts).
+	- I have planned to train SOOTHER using the [mimic2 training and inference algorithms](https://github.com/MycroftAI/mimic2) developed by Mycroft. However, offhand, it seems that mimic2 does not allow for concurrent requests to the SOOTHER model. Is there a workaround, or would a good queuing system be acceptable for a prototype? What are the pros of MaryTTS vs mimic2? Here is the [Macsen MaryTTS documentation](https://github.com/techiaith/docker-marytts) (in Welsh) and here is related [MaryTTS docker info](https://github.com/synesthesiam/docker-marytts).
+
+#### CONVERSATION DESIGN QUESTIONS
+- Help Skill : How should this function? Should all of the specified functionality be included in the same skill, or broken apart into several different skills? 
+	- Related to this, I wonder: 
+		- How is "misunderstood" language generally handled? How many times should the user be asked to repeat herself? What should happen in the case that the system cannot understand what the user says? 
+		- The app will have a "chat" functionality that enables the user to type their response in case that the app doesn't understand them, but what should be done if even this "chat" cannot be understood? 
+- General feedback: I'd love general feedback about SOOTHER's current skill layout and flow. Does it make sense? Will it be understandable to the user? 

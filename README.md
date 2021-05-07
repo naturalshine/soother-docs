@@ -2,5 +2,5 @@ SOOTHER is an AI ASMR voice companion. It comprises a synthesized whisper voice 
 
 For full documentation of SOOTHER's projected stack, see [SOOTHER'S TECHNOLOGY SPECIFICATION](SOOTHER-TECH-SPEC.md)
 
-SOOTHER is created by Claire Tolan and is initially licensed under an [M.I.T. LICENSE](LICENSE). 
+SOOTHER is created by Claire Tolan with support from [Nesta Italia](https://www.nestaitalia.org/en/), [Celi](https://www.celi.it/en/), and [superbudda](https://www.superbudda.com/), and is initially licensed under an [M.I.T. LICENSE](LICENSE). 
 
